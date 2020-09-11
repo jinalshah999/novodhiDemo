@@ -1,0 +1,20 @@
+<h1>Todos Component</h1>
+
+<!-- <ul>
+  <li *ngFor="let item of arrName">
+    {{item}}
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let x of arrNumber">
+    {{x}}
+  </li>
+</ul> -->
+<table class="table">
+  <tr *ngFor="let item of arrTodos">
+    <td>{{item.id}}</td>
+    <td>{{item.title}}</td>
+    <td>{{item.status}}</td>
+  </tr>
+</table>
