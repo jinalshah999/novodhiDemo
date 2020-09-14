@@ -1,0 +1,9 @@
+.demo {
+  border: 1px solid black;
+}
+.pending {
+  color: red;
+}
+.done {
+  color: green;
+}

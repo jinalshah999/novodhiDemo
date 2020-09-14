@@ -11,10 +11,27 @@
     {{x}}
   </li>
 </ul> -->
-<table class="table">
-  <tr *ngFor="let item of arrTodos">
-    <td>{{item.id}}</td>
-    <td>{{item.title}}</td>
-    <td>{{item.status}}</td>
-  </tr>
-</table>
+<div class="container">
+  <table class="table">
+    <thead>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of arrTodos">
+        <td>{{item.id}}</td>
+        <td>{{item.title}}</td>
+        <!-- <td *ngIf="item.status=='pending'"> <span style="color:red ;"> {{item.status}} </span> </td>
+        <td *ngIf="item.status=='done'"> <span style="color:green ;"> {{item.status}} </span> </td> -->
+        <td> <span [ngClass]="{done: item.status=='done','pending':item.status=='pending'}"> {{item.status}} </span>
+        </td>
+        <td>
+          <button (click)="onDeleteTask(item)">Delete</button>
+          <button (click)="onEditTask(item)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
