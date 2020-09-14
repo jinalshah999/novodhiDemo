@@ -12,26 +12,36 @@
   </li>
 </ul> -->
 <div class="container">
-  <table class="table">
-    <thead>
-      <th>Id</th>
-      <th>Title</th>
-      <th>Status</th>
-      <th>Actions</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of arrTodos">
-        <td>{{item.id}}</td>
-        <td>{{item.title}}</td>
-        <!-- <td *ngIf="item.status=='pending'"> <span style="color:red ;"> {{item.status}} </span> </td>
+  <div class="row">
+    <h3>Add Todos</h3>
+    <input type="number" [(ngModel)]="id" class="form-control" placeholder="Enter Id">
+    <input type="text" [(ngModel)]="title" class="form-control" placeholder="Enter Title">
+    <input type="text" [(ngModel)]="status" class="form-control" placeholder="Enter Status">
+    <button (click)="onTaskAdd()" class="btn btn-primary">Add Task</button>
+  </div>
+  <div class="row">
+    <h3> Todos</h3>
+    <table class="table">
+      <thead>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of arrTodos">
+          <td>{{item.id}}</td>
+          <td>{{item.title}}</td>
+          <!-- <td *ngIf="item.status=='pending'"> <span style="color:red ;"> {{item.status}} </span> </td>
         <td *ngIf="item.status=='done'"> <span style="color:green ;"> {{item.status}} </span> </td> -->
-        <td> <span [ngClass]="{done: item.status=='done','pending':item.status=='pending'}"> {{item.status}} </span>
-        </td>
-        <td>
-          <button (click)="onDeleteTask(item)">Delete</button>
-          <button (click)="onEditTask(item)">Edit</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          <td> <span [ngClass]="{done: item.status=='done','pending':item.status=='pending'}"> {{item.status}} </span>
+          </td>
+          <td>
+            <button (click)="onDeleteTask(item)">Delete</button>
+            <button (click)="onEditTask(item)">Edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

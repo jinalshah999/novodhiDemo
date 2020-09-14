@@ -9,6 +9,9 @@ export class TodosComponent implements OnInit {
   // arrName: string[] = ['jinal', 'shah'];
   // arrNumber: number[] = [1, 2, 3, 4, 5];
   // {"id":1,"title":"hello","status":"done"}
+  id;
+  title;
+  status;
   arrTodos: Todo[] = [
     new Todo(1, 'wear a mask if you go out', 'done'),
     new Todo(2, 'email to your mananger', 'pending'),
@@ -27,5 +30,8 @@ export class TodosComponent implements OnInit {
     } else {
       item.status = 'done';
     }
+  }
+  onTaskAdd() {
+    this.arrTodos.push(new Todo(this.id, this.title, this.status));
   }
 }
