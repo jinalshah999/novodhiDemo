@@ -128,4 +128,33 @@
       </ul>
     </li>
   </ul>
+
+  <select class="form-control col-md-2" [(ngModel)]="selectedValue">
+    <option *ngFor="let item of items" [value]="item.Name">{{item.Name}}</option>
+  </select>
+  <div [ngSwitch]="selectedValue">
+    <div *ngSwitchCase="'One'">
+      <span>One is Selected.</span>
+    </div>
+    <div *ngSwitchCase="'Two'">
+      <span>Two is Selected.</span>
+    </div>
+    <div *ngSwitchCase="'Three'">
+      <span>Three is Selected.</span>
+    </div>
+    <div *ngSwitchCase="'Four'">
+      <span>Four is Selected.</span>
+    </div>
+    <div *ngSwitchCase="'Five'">
+      <span>Five is Selected.</span>
+    </div>
+    <div *ngSwitchDefault>
+      <span>Default Option.</span>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+
 </div>
