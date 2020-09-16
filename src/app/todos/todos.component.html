@@ -13,11 +13,21 @@
 </ul> -->
 <div class="container">
   <div class="row">
-    <h3>Add Todos</h3>
-    <input type="number" [(ngModel)]="id" class="form-control" placeholder="Enter Id">
-    <input type="text" [(ngModel)]="title" class="form-control" placeholder="Enter Title">
-    <input type="text" [(ngModel)]="status" class="form-control" placeholder="Enter Status">
-    <button (click)="onTaskAdd()" class="btn btn-primary">Add Task</button>
+    <button (click)="onNewAddTaskClick()" class="form-control btn btn-danger">Add new Task</button>
+    <div *ngIf="flag;else elseblock">
+      <h3>Add Todos</h3>
+      <input type="number" [(ngModel)]="id" class="form-control" placeholder="Enter Id">
+      <input type="text" [(ngModel)]="title" class="form-control" placeholder="Enter Title">
+      <input type="text" [(ngModel)]="status" class="form-control" placeholder="Enter Status">
+      <button (click)="onCancelClick()" class="btn btn-primary">Cancel</button>
+      <button (click)="onTaskAdd()" class="btn btn-primary">Save Task</button>
+
+    </div>
+    <ng-template #elseblock>
+      <div>
+        <h3>this is else block.</h3>
+      </div>
+    </ng-template>
   </div>
   <div class="row">
     <h3> Todos</h3>
@@ -43,5 +53,11 @@
         </tr>
       </tbody>
     </table>
+    <hr>
+    <ul>
+      <li *ngFor="let item of arrTodosinterface">
+        {{item.title}}
+      </li>
+    </ul>
   </div>
 </div>
