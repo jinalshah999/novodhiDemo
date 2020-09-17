@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
 import { TodosComponent } from './todos/todos.component';
 import { ForDemosComponent } from './for-demos/for-demos.component';
+import { HighlighterDirective } from './highlighter.directive';
+import { CreditcardDirective } from './creditcard.directive';
 
 @NgModule({
-  declarations: [AppComponent, DemoComponent, TodosComponent, ForDemosComponent],
+  declarations: [AppComponent, DemoComponent, TodosComponent, ForDemosComponent, HighlighterDirective, CreditcardDirective],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
