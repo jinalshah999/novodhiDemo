@@ -8,9 +8,11 @@ import { TodosComponent } from './todos/todos.component';
 import { ForDemosComponent } from './for-demos/for-demos.component';
 import { HighlighterDirective } from './highlighter.directive';
 import { CreditcardDirective } from './creditcard.directive';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
 
 @NgModule({
-  declarations: [AppComponent, DemoComponent, TodosComponent, ForDemosComponent, HighlighterDirective, CreditcardDirective],
+  declarations: [AppComponent, DemoComponent, TodosComponent, ForDemosComponent, HighlighterDirective, CreditcardDirective, ParentComponent, ChildComponent],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
