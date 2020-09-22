@@ -13,6 +13,7 @@ import { CreditcardDirective } from './creditcard.directive';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { HeaderComponent } from './header/header.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HeaderComponent } from './header/header.component';
     ParentComponent,
     ChildComponent,
     HeaderComponent,
+    PagenotfoundComponent,
   ],
   imports: [BrowserModule, FormsModule, arrRouting],
   providers: [],

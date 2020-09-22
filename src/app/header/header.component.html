@@ -15,10 +15,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Demo <span class="sr-only">(current)</span></a></li>
-        <li><a routerLink="/todo">Todo</a></li>
-        <li><a routerLink="/fordemo">For Demo</a></li>
-        <li><a href="#">Products</a></li>
+        <li [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"><a routerLink="">Demo <span
+              class="sr-only">(current)</span></a></li>
+        <li routerLinkActive="active"><a routerLink="/todo">Todo</a></li>
+        <li routerLinkActive="active"><a routerLink="/fordemo">For Demo</a></li>
+        <li routerLinkActive="active"><a routerLink="/product">Products</a></li>
       </ul>
 
 
