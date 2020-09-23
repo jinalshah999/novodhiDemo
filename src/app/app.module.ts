@@ -14,6 +14,7 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { HeaderComponent } from './header/header.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     ChildComponent,
     HeaderComponent,
     PagenotfoundComponent,
+    EmployeeComponent,
   ],
   imports: [BrowserModule, FormsModule, arrRouting],
   providers: [],
