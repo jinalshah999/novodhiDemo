@@ -1,0 +1,34 @@
+<div class="container">
+
+  <h3 style="text-align: center;">Signup</h3>
+  <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+    <div class="from-group">
+      <label>User Name:<span class="lblError">*</span></label>
+      <div class="controls">
+        <input formControlName="user_name" placeholder="User Name" type="text" class="form-control">
+        <p class="lblError"
+          *ngIf="signupForm.get('user_name').hasError('required') && !signupForm.get('user_name').pristine "> Name is
+          Required. </p>
+        <p class="lblError"
+          *ngIf="signupForm.get('user_name').hasError('minlength') && !signupForm.get('user_name').pristine ">
+          Min 5 length
+        </p>
+      </div>
+    </div>
+    <div class="from-group">
+      <label>User Email:<span class="lblError">*</span></label>
+      <div class="controls">
+        <input formControlName="user_email" placeholder="Enter Email" type="email" class="form-control">
+        <p *ngIf="signupForm.get('user_email').hasError('required') && !signupForm.get('user_email').pristine "
+          class="lblError">Email is required</p>
+        <p *ngIf="signupForm.get('user_email').hasError('email') && !signupForm.get('user_email').pristine "
+          class="lblError">Invalid Email</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" [disabled]="signupForm.invalid" type="submit" style="width: 15%">
+        Sign Up
+      </button>
+    </div>
+  </form>
+</div>

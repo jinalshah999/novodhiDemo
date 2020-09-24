@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { arrRouting } from './app.routing';
 
@@ -15,6 +15,7 @@ import { ChildComponent } from './child/child.component';
 import { HeaderComponent } from './header/header.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,9 @@ import { EmployeeComponent } from './employee/employee.component';
     HeaderComponent,
     PagenotfoundComponent,
     EmployeeComponent,
+    SignupComponent,
   ],
-  imports: [BrowserModule, FormsModule, arrRouting],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule, arrRouting],
   providers: [],
   bootstrap: [AppComponent],
 })
