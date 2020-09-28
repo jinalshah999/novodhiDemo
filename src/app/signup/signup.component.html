@@ -13,6 +13,10 @@
           *ngIf="signupForm.get('user_name').hasError('minlength') && !signupForm.get('user_name').pristine ">
           Min 5 length
         </p>
+        <p class="lblError"
+          *ngIf="signupForm.get('user_name').hasError('invalidName') && !signupForm.get('user_name').pristine ">
+          Invalid Names
+        </p>
       </div>
     </div>
     <div class="from-group">
@@ -26,9 +30,10 @@
       </div>
     </div>
     <div class="form-group">
-      <button class="btn btn-primary" [disabled]="signupForm.invalid" type="submit" style="width: 15%">
+      <button class="btn btn-primary" type="submit" style="width: 15%">
         Sign Up
       </button>
+      <!-- [disabled]="signupForm.invalid" -->
     </div>
   </form>
 </div>

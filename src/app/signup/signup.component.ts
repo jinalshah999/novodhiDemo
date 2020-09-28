@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -8,6 +13,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
+  invalidNamesArr: string[] = ['hello', 'angular'];
   constructor() {}
 
   ngOnInit(): void {
@@ -15,6 +21,7 @@ export class SignupComponent implements OnInit {
       user_name: new FormControl(null, [
         Validators.required,
         Validators.minLength(5),
+        this.invalidUserNameValidation.bind(this),
       ]),
       user_email: new FormControl(null, [
         Validators.required,
@@ -24,5 +31,14 @@ export class SignupComponent implements OnInit {
   }
   onSignup() {
     console.log(this.signupForm);
+  }
+
+  invalidUserNameValidation(
+    control: AbstractControl
+  ): { [key: string]: boolean } {
+    if (this.invalidNamesArr.indexOf(control.value) >= 0) {
+      return { invalidName: true };
+    }
+    return null;
   }
 }
