@@ -29,6 +29,34 @@
           class="lblError">Invalid Email</p>
       </div>
     </div>
+    <div formGroupName="password_group" class="form-row">
+      <div class="from-group">
+        <label>Password:<span class="lblError">*</span></label>
+        <div class="controls">
+          <input formControlName="password" placeholder="Enter Password" type="password" class="form-control">
+          <p class="lblError"
+            *ngIf="signupForm.get('password_group').get('password').hasError('required') && !signupForm.get('password_group').get('password').pristine ">
+            password is
+            required</p>
+        </div>
+      </div>
+      <div class="from-group">
+        <label>Confirm Password:<span class="lblError">*</span></label>
+        <div class="controls">
+          <input formControlName="confirm_password" placeholder="Enter Confirm Password" type="password"
+            class="form-control">
+          <p class="lblError"
+            *ngIf="signupForm.get('password_group').get('confirm_password').hasError('required') && !signupForm.get('password_group').get('confirm_password').pristine ">
+            confirm password is
+            required</p>
+        </div>
+      </div>
+      <p class="lblError"
+        *ngIf="signupForm.get('password_group').hasError('passwordMatchError') && !signupForm.get('password_group').pristine ">
+        password doesn't match
+      </p>
+    </div>
+
     <div class="form-group">
       <button class="btn btn-primary" type="submit" style="width: 15%">
         Sign Up
