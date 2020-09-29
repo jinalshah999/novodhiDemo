@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
+  FormArray,
   FormControl,
   FormGroup,
   Validators,
@@ -34,10 +35,31 @@ export class SignupComponent implements OnInit {
         },
         [this.matchPasswords.bind(this)]
       ),
+      user_phone: new FormControl(null),
+      user_notification: new FormControl('email'),
+      user_hobbies: new FormArray([]),
     });
+
+    this.signupForm
+      .get('user_notification')
+      .valueChanges.subscribe((x) => this.setNotificationValidation(x));
+  }
+  setNotificationValidation(value: string) {
+    const phoneControl = this.signupForm.get('user_phone');
+    const emailControl = this.signupForm.get('user_email');
+    if (value == 'phone') {
+      phoneControl.setValidators(Validators.required);
+      emailControl.clearValidators();
+      emailControl.setValidators(Validators.email);
+    } else {
+      emailControl.setValidators([Validators.required, Validators.email]);
+      phoneControl.clearValidators();
+    }
+    phoneControl.updateValueAndValidity();
+    emailControl.updateValueAndValidity();
   }
   onSignup() {
-    console.log(this.signupForm);
+    console.log(this.signupForm.value);
   }
   invalidUserNameValidation(
     control: AbstractControl
@@ -54,5 +76,19 @@ export class SignupComponent implements OnInit {
       return { passwordMatchError: true };
     }
     return null;
+  }
+  getControl() {
+    return (<FormArray>this.signupForm.get('user_hobbies')).controls;
+  }
+  onAddHobbiesClick() {
+    if (this.signupForm.get('user_hobbies').value.length < 3) {
+      const control = new FormControl(null);
+      (this.signupForm.get('user_hobbies') as FormArray).push(control);
+    } else {
+      alert('you can add max 3 hobbies');
+    }
+  }
+  onRemoveHobbiesClick(i) {
+    (this.signupForm.get('user_hobbies') as FormArray).removeAt(i);
   }
 }

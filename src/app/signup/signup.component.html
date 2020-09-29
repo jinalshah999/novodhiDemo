@@ -19,6 +19,12 @@
         </p>
       </div>
     </div>
+    <div class="form-group">
+      <div class="controls">
+        <input type="radio" value="email" class="form-check-input" formControlName="user_notification">Email
+        <input type="radio" value="phone" class="form-check-input" formControlName="user_notification">Phone
+      </div>
+    </div>
     <div class="from-group">
       <label>User Email:<span class="lblError">*</span></label>
       <div class="controls">
@@ -27,6 +33,14 @@
           class="lblError">Email is required</p>
         <p *ngIf="signupForm.get('user_email').hasError('email') && !signupForm.get('user_email').pristine "
           class="lblError">Invalid Email</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>User Phone: </label>
+      <div class="controls">
+        <input type="text" formControlName="user_phone" placeholder="Enter mobile no" class="form-control">
+        <p *ngIf="signupForm.get('user_phone').hasError('required') && !signupForm.get('user_phone').pristine "
+          class="lblError">Phone is required</p>
       </div>
     </div>
     <div formGroupName="password_group" class="form-row">
@@ -56,12 +70,23 @@
         password doesn't match
       </p>
     </div>
-
     <div class="form-group">
-      <button class="btn btn-primary" type="submit" style="width: 15%">
+      <label>Hobbies</label>
+      <div class="controls">
+        <button type="button" class="btn btn-secondary" (click)="onAddHobbiesClick()">Add</button>
+
+        <div formArrayName="user_hobbies" *ngFor="let item of getControl();let i=index">
+          <input type="text" [formControlName]="i" class="form-control">
+          <button type="button" class="btn btn-danger btn-sm pull" (click)="onRemoveHobbiesClick(i)"> Remove </button>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" [disabled]="signupForm.invalid" type="submit" style="width: 15%">
         Sign Up
       </button>
-      <!-- [disabled]="signupForm.invalid" -->
+      <!--  -->
     </div>
   </form>
 </div>
