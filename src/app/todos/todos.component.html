@@ -41,11 +41,11 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of arrTodos">
-          <td>{{item.id}}</td>
-          <td>{{item.title}}</td>
+          <td>{{item.Id}}</td>
+          <td>{{item.Title}}</td>
           <!-- <td *ngIf="item.status=='pending'"> <span style="color:red ;"> {{item.status}} </span> </td>
         <td *ngIf="item.status=='done'"> <span style="color:green ;"> {{item.status}} </span> </td> -->
-          <td> <span [ngClass]="{done: item.status=='done','pending':item.status=='pending'}"> {{item.status}} </span>
+          <td> <span [ngClass]="{done: item.Status=='done','pending':item.Status=='pending'}"> {{item.Status}} </span>
           </td>
           <td>
             <button (click)="onDeleteTask(item)">Delete</button>

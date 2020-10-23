@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { arrRouting } from './app.routing';
 
@@ -17,6 +18,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { SignupComponent } from './signup/signup.component';
 
+import { CKEditorModule } from 'ckeditor4-angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,14 @@ import { SignupComponent } from './signup/signup.component';
     EmployeeComponent,
     SignupComponent,
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, arrRouting],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    arrRouting,
+    CKEditorModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

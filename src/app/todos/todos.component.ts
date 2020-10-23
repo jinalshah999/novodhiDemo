@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo, Todo1 } from './todo';
+import { TaskdataService } from './taskdata.service';
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
@@ -13,24 +14,23 @@ export class TodosComponent implements OnInit {
   title;
   status;
   flag: boolean = false;
-  arrTodos: Todo[] = [
-    new Todo(1, 'wear a mask if you go out', 'done'),
-    new Todo(2, 'email to your mananger', 'pending'),
-    new Todo(3, 'demo tasks', 'pending'),
-    new Todo(4, 'some description', 'done'),
-  ];
+  arrTodos: Todo[] = [];
   arrTodosinterface: Todo1[] = [];
-  constructor() {}
+  constructor(private _data: TaskdataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._data.getAllTasks().subscribe((data: Todo[]) => {
+      this.arrTodos = data;
+    });
+  }
   onDeleteTask(item: Todo) {
     this.arrTodos.splice(this.arrTodos.indexOf(item), 1);
   }
   onEditTask(item: Todo) {
-    if (item.status == 'done') {
-      item.status = 'pending';
+    if (item.Status == 'done') {
+      item.Status = 'pending';
     } else {
-      item.status = 'done';
+      item.Status = 'done';
     }
   }
   onTaskAdd() {
