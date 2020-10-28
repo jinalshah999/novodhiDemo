@@ -23,19 +23,30 @@ export class TodosComponent implements OnInit {
       this.arrTodos = data;
     });
   }
-  onDeleteTask(item: Todo) {
-    this.arrTodos.splice(this.arrTodos.indexOf(item), 1);
-  }
   onEditTask(item: Todo) {
-    if (item.Status == 'done') {
-      item.Status = 'pending';
-    } else {
-      item.Status = 'done';
+    item.Status = 'pending';
+    this._data.editTask(item).subscribe((x) => {
+      console.log(x);
+    });
+  }
+  onDeleteTask(item: Todo) {
+    if (confirm('Are you sure you want to delete?')) {
+      this._data.deleteTask(item.Id).subscribe((x: any) => {
+        if (x.affectedRows == 1) {
+          this.arrTodos.splice(this.arrTodos.indexOf(item), 1);
+        }
+      });
     }
   }
+
   onTaskAdd() {
-    this.arrTodos.push(new Todo(this.id, this.title, this.status));
-    this.flag = false;
+    this._data
+      .addTask(new Todo(this.id, this.title, this.status))
+      .subscribe((x) => {
+        console.log(x);
+        this.arrTodos.push(new Todo(this.id, this.title, this.status));
+        this.flag = false;
+      });
   }
   onNewAddTaskClick() {
     this.flag = true;

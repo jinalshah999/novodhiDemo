@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { arrRouting } from './app.routing';
 
@@ -19,6 +19,8 @@ import { EmployeeComponent } from './employee/employee.component';
 import { SignupComponent } from './signup/signup.component';
 
 import { CKEditorModule } from 'ckeditor4-angular';
+import { LoaderComponent } from './loader/loader.component';
+import { HttpinterceptorService } from './httpinterceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +35,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
     PagenotfoundComponent,
     EmployeeComponent,
     SignupComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,13 @@ import { CKEditorModule } from 'ckeditor4-angular';
     arrRouting,
     CKEditorModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpinterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
