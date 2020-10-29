@@ -21,6 +21,8 @@ import { SignupComponent } from './signup/signup.component';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { LoaderComponent } from './loader/loader.component';
 import { HttpinterceptorService } from './httpinterceptor.service';
+import { UsersDisplayComponent } from './users-display/users-display.component';
+import { AdduserComponent } from './users-display/adduser/adduser.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +38,8 @@ import { HttpinterceptorService } from './httpinterceptor.service';
     EmployeeComponent,
     SignupComponent,
     LoaderComponent,
+    UsersDisplayComponent,
+    AdduserComponent,
   ],
   imports: [
     BrowserModule,
