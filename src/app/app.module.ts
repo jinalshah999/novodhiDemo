@@ -23,6 +23,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { HttpinterceptorService } from './httpinterceptor.service';
 import { UsersDisplayComponent } from './users-display/users-display.component';
 import { AdduserComponent } from './users-display/adduser/adduser.component';
+import { EdittodoComponent } from './todos/edittodo/edittodo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { AdduserComponent } from './users-display/adduser/adduser.component';
     LoaderComponent,
     UsersDisplayComponent,
     AdduserComponent,
+    EdittodoComponent,
   ],
   imports: [
     BrowserModule,

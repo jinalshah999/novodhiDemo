@@ -9,9 +9,11 @@ import { EmployeeComponent } from './employee/employee.component';
 import { SignupComponent } from './signup/signup.component';
 import { UsersDisplayComponent } from './users-display/users-display.component';
 import { AdduserComponent } from './users-display/adduser/adduser.component';
+import { EdittodoComponent } from './todos/edittodo/edittodo.component';
 const arr: Routes = [
   { path: '', component: DemoComponent },
   { path: 'todo', component: TodosComponent },
+  { path: 'edittodo/:id', component: EdittodoComponent },
   { path: 'fordemo', component: ForDemosComponent },
   { path: 'product', component: ParentComponent },
   { path: 'empadd', component: EmployeeComponent },

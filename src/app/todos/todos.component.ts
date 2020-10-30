@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo, Todo1 } from './todo';
 import { TaskdataService } from './taskdata.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
@@ -16,7 +17,7 @@ export class TodosComponent implements OnInit {
   flag: boolean = false;
   arrTodos: Todo[] = [];
   arrTodosinterface: Todo1[] = [];
-  constructor(private _data: TaskdataService) {}
+  constructor(private _data: TaskdataService, private _router: Router) {}
 
   ngOnInit(): void {
     this._data.getAllTasks().subscribe((data: Todo[]) => {
@@ -24,10 +25,7 @@ export class TodosComponent implements OnInit {
     });
   }
   onEditTask(item: Todo) {
-    item.Status = 'pending';
-    this._data.editTask(item).subscribe((x) => {
-      console.log(x);
-    });
+    this._router.navigate(['/edittodo', item.Id]);
   }
   onDeleteTask(item: Todo) {
     if (confirm('Are you sure you want to delete?')) {

@@ -12,6 +12,9 @@ export class TaskdataService {
   getAllTasks() {
     return this._http.get(this.url);
   }
+  getTaskByID(id) {
+    return this._http.get(this.url + id);
+  }
   addTask(item: Todo) {
     let head = new HttpHeaders().set('Content-Type', 'application/json');
     let body = JSON.stringify(item);
