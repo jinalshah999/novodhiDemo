@@ -21,9 +21,10 @@ import { SignupComponent } from './signup/signup.component';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { LoaderComponent } from './loader/loader.component';
 import { HttpinterceptorService } from './httpinterceptor.service';
-import { UsersDisplayComponent } from './users-display/users-display.component';
-import { AdduserComponent } from './users-display/adduser/adduser.component';
 import { EdittodoComponent } from './todos/edittodo/edittodo.component';
+
+import { UserModule } from './users-display/user.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,8 +40,6 @@ import { EdittodoComponent } from './todos/edittodo/edittodo.component';
     EmployeeComponent,
     SignupComponent,
     LoaderComponent,
-    UsersDisplayComponent,
-    AdduserComponent,
     EdittodoComponent,
   ],
   imports: [
@@ -50,6 +49,7 @@ import { EdittodoComponent } from './todos/edittodo/edittodo.component';
     HttpClientModule,
     arrRouting,
     CKEditorModule,
+    UserModule,
   ],
   providers: [
     {
