@@ -17,6 +17,12 @@ const arr: Routes = [
   { path: 'product', component: ParentComponent },
   { path: 'empadd', component: EmployeeComponent },
   { path: 'signup', component: SignupComponent },
+  //http://localhost:4200/user/
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./users-display/user.module').then((x) => x.UserModule),
+  },
   { path: 'pagenotfound', component: PagenotfoundComponent },
   { path: '**', redirectTo: '/pagenotfound' },
 ];

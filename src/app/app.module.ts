@@ -23,8 +23,6 @@ import { LoaderComponent } from './loader/loader.component';
 import { HttpinterceptorService } from './httpinterceptor.service';
 import { EdittodoComponent } from './todos/edittodo/edittodo.component';
 
-import { UserModule } from './users-display/user.module';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +47,6 @@ import { UserModule } from './users-display/user.module';
     HttpClientModule,
     arrRouting,
     CKEditorModule,
-    UserModule,
   ],
   providers: [
     {
