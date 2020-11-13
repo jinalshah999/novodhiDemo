@@ -25,7 +25,7 @@ export class TodosComponent implements OnInit {
     });
   }
   onEditTask(item: Todo) {
-    this._router.navigate(['/edittodo', item.Id]);
+    this._router.navigate(['/todos/edit', item.Id]);
   }
   onDeleteTask(item: Todo) {
     if (confirm('Are you sure you want to delete?')) {

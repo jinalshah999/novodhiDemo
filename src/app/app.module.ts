@@ -7,7 +7,6 @@ import { arrRouting } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
-import { TodosComponent } from './todos/todos.component';
 import { ForDemosComponent } from './for-demos/for-demos.component';
 import { HighlighterDirective } from './highlighter.directive';
 import { CreditcardDirective } from './creditcard.directive';
@@ -21,13 +20,11 @@ import { SignupComponent } from './signup/signup.component';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { LoaderComponent } from './loader/loader.component';
 import { HttpinterceptorService } from './httpinterceptor.service';
-import { EdittodoComponent } from './todos/edittodo/edittodo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoComponent,
-    TodosComponent,
     ForDemosComponent,
     HighlighterDirective,
     CreditcardDirective,
@@ -38,7 +35,6 @@ import { EdittodoComponent } from './todos/edittodo/edittodo.component';
     EmployeeComponent,
     SignupComponent,
     LoaderComponent,
-    EdittodoComponent,
   ],
   imports: [
     BrowserModule,
