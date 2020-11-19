@@ -6,20 +6,26 @@ import { ParentComponent } from './parent/parent.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { SignupComponent } from './signup/signup.component';
-
+import { UserguardService } from './userguard.service';
 const arr: Routes = [
   { path: '', component: DemoComponent },
-  { path: 'fordemo', component: ForDemosComponent },
+  {
+    path: 'fordemo',
+    canActivate: [UserguardService],
+    component: ForDemosComponent,
+  },
   { path: 'product', component: ParentComponent },
   { path: 'empadd', component: EmployeeComponent },
   { path: 'signup', component: SignupComponent },
   {
     path: 'user',
+    canActivate: [UserguardService],
     loadChildren: () =>
       import('./users-display/user.module').then((x) => x.UserModule),
   },
   {
     path: 'todos',
+    canLoad: [UserguardService],
     loadChildren: () =>
       import('./todos/todos.module').then((x) => x.TodosModule),
   },
