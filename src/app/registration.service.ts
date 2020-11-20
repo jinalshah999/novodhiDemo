@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 export class RegistrationService {
   constructor(private _router: Router) {}
   currentUser = null;
+  get isLoggedIn(): boolean {
+    return !!this.currentUser;
+  }
   login(username: string, password: string) {
     localStorage.setItem('user_name', username);
 
@@ -26,6 +29,7 @@ export class RegistrationService {
     };
   }
   logout() {
+    this.currentUser = null;
     localStorage.clear();
     this._router.navigate(['/']);
   }

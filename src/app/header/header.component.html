@@ -24,8 +24,8 @@
         <li routerLinkActive="active"><a routerLink="/signup">SignUp</a></li>
         <li routerLinkActive="active"><a routerLink="/user">User</a></li>
         <li routerLinkActive="active"><a routerLink="/user/add">Add User</a></li>
-        <li routerLinkActive="active"><a (click)="onLoginClick()">Login</a></li>
-        <li routerLinkActive="active"><a (click)="onLogOutClick()">LogOut</a></li>
+        <li routerLinkActive="active"><a *ngIf="!isLoggedIn" (click)="onLoginClick()">Login</a></li>
+        <li routerLinkActive="active"><a *ngIf="isLoggedIn" (click)="onLogOutClick()">LogOut</a></li>
       </ul>
 
 

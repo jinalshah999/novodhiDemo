@@ -19,7 +19,7 @@ import { SignupComponent } from './signup/signup.component';
 
 import { CKEditorModule } from 'ckeditor4-angular';
 import { LoaderComponent } from './loader/loader.component';
-import { HttpinterceptorService } from './httpinterceptor.service';
+import { HttpinterceptorestokenService } from './httpinterceptorestoken.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import { HttpinterceptorService } from './httpinterceptor.service';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HttpinterceptorService,
+      useClass: HttpinterceptorestokenService,
       multi: true,
     },
   ],

@@ -16,4 +16,7 @@ export class HeaderComponent implements OnInit {
   onLogOutClick() {
     this._regData.logout();
   }
+  get isLoggedIn(): boolean {
+    return this._regData.isLoggedIn;
+  }
 }

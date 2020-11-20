@@ -16,17 +16,15 @@ export class TaskdataService {
     return this._http.get(this.url + id);
   }
   addTask(item: Todo) {
-    let head = new HttpHeaders().set('Content-Type', 'application/json');
     let body = JSON.stringify(item);
-    return this._http.post(this.url, body, { headers: head });
+    return this._http.post(this.url, body);
   }
   deleteTask(id) {
-    let head = new HttpHeaders().set('Content-Type', 'application/json');
-    return this._http.delete(this.url + id, { headers: head });
+    return this._http.delete(this.url + id);
   }
   editTask(item: Todo) {
-    let head = new HttpHeaders().set('Content-Type', 'application/json');
+    // let head = new HttpHeaders().set('Content-Type', 'application/json');
     let body = JSON.stringify(item);
-    return this._http.put(this.url + item.Id, body, { headers: head });
+    return this._http.put(this.url + item.Id, body);
   }
 }
