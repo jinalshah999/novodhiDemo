@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo, Todo1 } from './todo';
 import { TaskdataService } from './taskdata.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
@@ -17,12 +17,14 @@ export class TodosComponent implements OnInit {
   flag: boolean = false;
   arrTodos: Todo[] = [];
   arrTodosinterface: Todo1[] = [];
-  constructor(private _data: TaskdataService, private _router: Router) {}
+  constructor(
+    private _data: TaskdataService,
+    private _router: Router,
+    private _acRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this._data.getAllTasks().subscribe((data: Todo[]) => {
-      this.arrTodos = data;
-    });
+    this.arrTodos = this._acRoute.snapshot.data['xyz'];
   }
   onEditTask(item: Todo) {
     this._router.navigate(['/todos/edit', item.Id]);

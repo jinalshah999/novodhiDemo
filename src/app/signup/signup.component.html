@@ -74,7 +74,7 @@
       <label>Hobbies</label>
       <div class="controls">
         <button type="button" class="btn btn-secondary" (click)="onAddHobbiesClick()">Add</button>
- 
+
         <div formArrayName="user_hobbies" *ngFor="let item of getControl();let i=index">
           <input type="text" [formControlName]="i" class="form-control">
           <button type="button" class="btn btn-danger btn-sm pull" (click)="onRemoveHobbiesClick(i)"> Remove </button>
