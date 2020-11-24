@@ -7,6 +7,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserguardService } from './userguard.service';
+import { AngularMatrialDemoComponent } from './angular-matrial-demo/angular-matrial-demo.component';
 const arr: Routes = [
   { path: '', component: DemoComponent },
   {
@@ -14,6 +15,7 @@ const arr: Routes = [
     canActivate: [UserguardService],
     component: ForDemosComponent,
   },
+  { path: 'ngdemo', component: AngularMatrialDemoComponent },
   { path: 'product', component: ParentComponent },
   { path: 'empadd', component: EmployeeComponent },
   { path: 'signup', component: SignupComponent },

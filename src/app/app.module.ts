@@ -20,6 +20,10 @@ import { SignupComponent } from './signup/signup.component';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { LoaderComponent } from './loader/loader.component';
 import { HttpinterceptorestokenService } from './httpinterceptorestoken.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMatrialDemoComponent } from './angular-matrial-demo/angular-matrial-demo.component';
+
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,7 @@ import { HttpinterceptorestokenService } from './httpinterceptorestoken.service'
     EmployeeComponent,
     SignupComponent,
     LoaderComponent,
+    AngularMatrialDemoComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,8 @@ import { HttpinterceptorestokenService } from './httpinterceptorestoken.service'
     HttpClientModule,
     arrRouting,
     CKEditorModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
   ],
   providers: [
     {

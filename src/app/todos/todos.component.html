@@ -48,6 +48,9 @@
           <td> <span [ngClass]="{done: item.Status=='done','pending':item.Status=='pending'}"> {{item.Status}} </span>
           </td>
           <td>
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
+              <mat-icon>delete</mat-icon>
+            </button>
             <button (click)="onDeleteTask(item)">Delete</button>
             <button (click)="onEditTask(item)">Edit</button>
           </td>
@@ -55,10 +58,28 @@
       </tbody>
     </table>
     <hr>
-    <ul>
-      <li *ngFor="let item of arrTodosinterface">
-        {{item.Title}}
-      </li>
-    </ul>
+    <mat-card *ngFor="let item of arrTodos">{{item.Title}}</mat-card>
+    <hr>
+    <div class="col-md-12">
+
+
+      <mat-card *ngFor="let item of arrTodos" class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{item.Id}}</mat-card-title>
+          <mat-card-subtitle>dfafs</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            {{item.Title}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
 </div>
